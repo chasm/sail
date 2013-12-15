@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :is_authenticated?
-  before_action :get_topic, only: [ :show, :edit, :update, :destroy ]
+  before_action :get_topic, only: [ :edit, :update, :destroy ]
 
   def index
     @topics = Topic.all.entries
@@ -8,6 +8,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+    redirect_to topics_url, error: "Topic not found." unless @topic = Topic.find_by(slug: params[:slug])
   end
 
   def new

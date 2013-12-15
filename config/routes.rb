@@ -1,6 +1,7 @@
 Sail::Application.routes.draw do
 
-  resources :topics do
+  get 'topics/:slug' => 'topics#show', as: :topic
+  resources :topics, except: [ :show ]  do
     resources :notes
   end
 
