@@ -45,7 +45,7 @@ class User
   end
 
   def password_matches?(password)
-    return self if self.fish == BCrypt::Engine.hash_secret(password + self.salt)
+    return self if self.fish == BCrypt::Engine.hash_secret(password, self.salt)
   end
 
   def set_password_reset
@@ -76,7 +76,7 @@ class User
   def encrypt_password
     if password.present?
       self.salt = BCrypt::Engine.generate_salt
-      self.fish = BCrypt::Engine.hash_secret(password + self.salt)
+      self.fish = BCrypt::Engine.hash_secret(password, self.salt)
     end
   end
 
