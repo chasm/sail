@@ -13,9 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module Sail
   class Application < Rails::Application
-    config.serve_static_assets = true
     config.encoding = "utf-8"
     config.filter_parameters += [ :password, :password_confirmation ]
-    config.assets.version = '1.0'
   end
 end
