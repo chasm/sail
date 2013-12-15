@@ -1,0 +1,24 @@
+.row
+  .col-lg-4.col-lg-offset-4
+    ul.nav.nav-pills.login-options
+      li.active
+        a#login-pill href="#" Sign in
+      li
+        a#reset-pill href="#" Reset Password
+    = form_for :user, url: login_url, html: { role: "form", id: "loginform" } do |f|
+      .row
+        .col-lg-8
+          fieldset
+            legend Please sign in
+            .form-group
+              = f.label :email
+              = f.email_field :email, class: "form-control", placeholder: "Enter your email address", autofocus: true, required: true
+            .form-group
+              = f.label :password, id: 'password-label'
+              = f.password_field :password, class: "form-control showable-password", placeholder: "Enter your password", required: true
+            .form-group
+              => f.submit "Sign in", class: "btn btn-success", id: 'submit-button'
+              button#show-password-button.btn.btn-warning data-state="show" Show Password
+
+= javascript_include_tag "login"
+= javascript_include_tag "password"
