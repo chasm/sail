@@ -1,5 +1,9 @@
 Sail::Application.routes.draw do
 
+  resources :topics do
+    resources :notes
+  end
+
   # Sign in/out
   get    'login'  => 'session#new',     as: :login
   post   'login'  => 'session#create'

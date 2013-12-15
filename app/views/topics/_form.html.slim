@@ -1,0 +1,6 @@
+= form_for @topic, role: "form" do |f|
+  .form-group
+    = f.label :title, class: "sr-only"
+    = f.text_field :title, class: "form-control", placeholder: "Enter topic title", required: true
+  .form-group
+    = f.submit class: "btn btn-warning"

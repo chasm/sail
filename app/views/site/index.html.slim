@@ -1,4 +1,9 @@
-.row style="margin-top: 100px"
-  .col-lg-12
-    p
-      = image_tag "sail_immersive_gold.png"
+- if current_user
+  .row style="margin-top: 100px"
+    .col-lg-12
+      p Whoa, baby!
+- else
+  .row style="margin-top: 100px"
+    .col-lg-12
+      p
+        = image_tag "sail_immersive_gold.png"

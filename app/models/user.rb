@@ -1,10 +1,13 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   TIME_TO_EXPIRE = 1.hour
 
   before_save :encrypt_password
   before_save :downcase_email
+
+  has_many :topics
 
   attr_accessor :password, :password_confirmation
 
